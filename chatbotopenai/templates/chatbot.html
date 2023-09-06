@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <!-- Add any additional CSS stylesheets or JavaScript libraries here -->
+</head>
+<body>
+    <h1>Chatbot Interface</h1>
+
+    <div id="chatbot-container">
+        <!-- Display chatbot responses here using Django template tags -->
+        {% if chatbot_response %}
+            <div class="chatbot-response">
+                Chatbot: {{ chatbot_response }}
+            </div>
+        {% endif %}
+    </div>
+
+    <form method="post" action="{% url 'chatbot_view' %}" id="user-query-form">
+        {% csrf_token %}
+        <input type="text" name="user_query" placeholder="Ask a question...">
+        <button type="submit">Ask</button>
+    </form>
+
+    <!-- Add any additional JavaScript code here if needed -->
+</body>
+</html>
